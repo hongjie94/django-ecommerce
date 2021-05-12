@@ -1,0 +1,57 @@
+{% extends "auctions/layout.html" %}
+
+
+{% block bg %}
+    <style>
+        body {
+            background-image: url("../static/images/7.jpeg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: 50% 50%; 
+            background-size: cover;
+            padding: 0px;
+        }
+
+        @media (min-width: 950px) {
+    
+        .regi, .l_out {
+                position: absolute;
+                right: 0px;
+            }
+        }
+        
+        @media (min-width: 800px) {
+    
+        .l_in {
+
+                position: absolute;
+                right: 100px;
+            }
+        }
+        
+    </style>
+{% endblock %}
+
+<img class="lbg" src="../static/images/4.jpeg" alt="longin_bg">
+
+{% block body %}
+<div class="register_singin_from">
+   <div class="login"> <h2 class="text">Login</h2> </div>
+
+    {% if message %}
+        <div class="login_meg">{{ message }}</div>
+    {% endif %}
+
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <input autofocus class="form-control" type="text" name="username" placeholder="Username">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="password" name="password" placeholder="Password">
+        </div>
+        <div style="text-align:center;"><input class="button l_in_b btn" type="submit" value="Login"></div>
+    </form>
+    <div class="login_bot">Don't have an account? <a href="{% url 'register' %}">Register here.</a></div>
+</div>
+{% endblock %}

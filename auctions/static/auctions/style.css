@@ -1,0 +1,640 @@
+
+/* Logo in index*/
+.logo {
+    text-align: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: normal;
+    font-weight: 500;
+    font-family: cursive;
+    margin: 0px;
+    box-shadow: 5px 20px 50px -5px #1d2124;
+    color: black;
+    border-radius: 1.1rem;
+    padding: 2px 10px;
+}
+
+/* nav bar */
+.navbar-dark .navbar-nav .nav-link {
+    color: #1d2124;
+    font-weight: 500;
+    margin-right: 15px;
+    margin-left: 1px;
+
+    }
+
+/* Main container for all listing box in index page*/
+#container {
+    max-width:1000px; 
+    margin:auto; 
+    height: auto;
+   }
+
+
+/* Wrap each individual box in side container in index/activelisting page*/
+.listings_contaniner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.listings {
+    width: 180px;
+    height: 200px;
+    margin: 10px;
+    background-color: #cd6b2b;
+    border-radius: .25rem;
+}
+
+/* Over all listing texts */
+.listings_text {
+    width: auto;
+    height: 20px;
+    text-align: center;
+    font-size: 13px;
+    color: #1d2124;
+    font-weight: 750;
+    display: -webkit-box;
+    line-height: 14px;
+    height: 14px;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+
+/* Wrap around over all images*/
+.wrap_img {
+    width: auto;
+    height: auto;
+
+}
+
+/* Add border style for over all images*/
+.listing_img {
+    width: 180px;
+    height: 150px;
+    border-style: ridge;
+    object-fit: cover;
+
+}
+
+
+/* Sign status at top center of every pages*/
+.sign_in {
+    margin-top: 1em;
+    text-align: center;
+}
+
+
+/* Text style over all*/
+.text {
+    text-align: center;
+    font-size: 2.3rem;
+    text-transform: uppercase;
+    letter-spacing: normal;
+    font-weight: 500;
+    font-family: cursive;
+    margin-bottom: 1.5em;
+    box-shadow: 5px 20px 50px -5px rgb(188 88 20);
+}
+
+
+/* Space for top and bottom in all pages*/
+.space{
+    height:100px;
+    width: 100%;
+}
+
+.space_top{
+    height:75px;
+    width: 100%;
+}
+
+
+.myl_wl {
+width: 1200px;
+height: auto;
+margin: auto;
+}
+
+
+/* Header for index/active listing page*/
+.head {
+    margin: auto;
+    width: 23em;
+    height: auto;
+    background-color: #bc5814;
+    opacity: 1;
+    border-radius: .25rem;
+}
+
+
+/* Header for watchlist page*/
+.h_wl {
+    width: 28em;
+}
+
+
+/* Header for my listing page*/
+.h_ml {
+    width: 26em;
+}
+
+
+/* Header for Fashion page*/
+.h_f {
+    width: 13em;
+
+}
+
+
+/* Header width for Toy page*/
+.h_t {
+    width: 8em;
+
+}
+
+
+/* Header width for Electronic page*/
+.h_e {
+    width: 16em;
+
+}
+
+/* Header  width for Home page*/
+.h_h {
+    width: 8em;
+}
+
+
+/* Header width for Everythig page*/
+.h_ee {
+    width: 23em;
+}
+
+
+/*Header for login page*/
+.login {
+
+    margin: 2em auto;
+    width: 9em;
+    height: auto;
+    background-color: #bc5814;
+    border-radius: .25rem;
+}
+
+
+/* Message in login page*/
+.login_meg {
+    width: 257px;
+    height: 24;
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: #bc5814;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+    border-radius: .25rem;
+}
+
+
+/* Bottom text in login page*/
+.login_bot {
+    width: 275px;
+    height: 24;
+    margin-top: 10px;
+    text-align: center;
+    background-color: #bc5814;
+    margin-left: 3.5%;
+    margin-right: 3.5%;
+    opacity: 0.9;
+    border-radius: .25rem;
+
+}
+
+
+/* Header for register page */
+.register {
+
+    margin: 2em auto;
+    width: 13em;
+    height: auto;
+    background-color: #bc5814;
+    border-radius: .25rem;
+}
+
+
+/* Register page bottom text*/
+.register_bot {
+
+    width: 277px;
+    height: 24;
+    margin-top: 10px;
+    text-align: center;
+    background-color: #bc5814;
+    margin-left: 4.5%;
+    margin-right: 4.5%;
+    opacity: 0.9;
+    border-radius: .25rem;
+}
+
+
+.rrequired {
+
+    width: 210px;
+    height: 24;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    background-color: #bc5814;
+    border-radius: 0.25rem;
+ }
+
+
+/* Message in regster page*/
+.register_meg {
+
+    width: 194px;
+    height: 24;
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: #bc5814;
+    margin-left: 17.5%;
+    margin-right: 17.5%;
+    border-radius: .25rem;
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Header in create page*/
+.head_c {
+    margin: auto;
+    width: 32em;
+    height: auto;
+    background-color: #bc5814;
+    border-radius: .25rem;
+}
+
+
+/* Image div in each listing page*/
+.div_img {
+    margin: auto;
+    width: 1200;
+    height: auto;
+
+}
+
+
+/* image wrap for image in listing detail page*/
+.pg_img {
+    width: 500px;
+    height: 340px;
+    border-style: ridge;
+    box-shadow: 5px 20px 50px -5px rgba(0,0,0,0.75);
+}
+
+
+/* Left box/ image box a in active listing.html*/
+.card_a {
+   background-color: white;
+   width: 570px;
+   height: 25em;
+   padding: 30px;
+   margin-bottom: 20px;
+   display: inline;
+   float: left;
+   position: relative;
+}
+
+#text_box {
+    height: 140px;
+    width: 240px;
+    position: absolute;
+    background-color: black;
+    border-radius: 1.25rem;
+    left: 28%;
+    bottom: 33%
+}
+
+/* Tag in side of the image box in active listing page*/
+
+.l3 {
+    margin:left 0px;
+    width: auto;
+}
+
+.l1, .l2, .l3 .l4 {
+
+    font-weight: 300;
+    width: 240px;
+    text-align: left;
+    position: relative;
+    font-family: cursive;
+    padding:auto;
+    color: white;
+    font-family: cursive;
+
+}
+
+/* Right box/ Text box a in active listing.html*/
+.card_b {
+
+    background-color: white;
+    width: 570px;
+    height: 25em;
+    padding: 30px;
+    margin-bottom: 20px;
+    display: inline;
+    float: right;
+ }
+
+
+/* Wrap card_a and card_b*/
+.row {
+    margin: auto;
+    width: 1140px;
+    height: auto;
+}
+
+
+/* Descriptions box in active listing.html*/
+.descriptions_box {
+    margin: auto;
+    width: 1140px;
+    height: auto;
+}
+
+
+/* Comment box in active listing.html*/
+.comment_box {
+margin: auto;
+width: 1140px;
+height: auto;
+}
+
+
+/* Comment box and Descriptions box in active listing.html*/
+.cnd {
+    margin: auto;
+    width: 1140px;
+    height: auto;
+}
+
+
+/* Width for header bar in my listing.html*/
+.w {
+    height: 295px;
+}
+
+/* Width for header bar in watchlist.html*/
+.wl {
+
+    height: 252px;
+}
+
+/* width for button active listing page*/
+.le {
+    width: 149px;
+}
+
+/* Watchlist button in active listing.html*/
+.cb {
+    color: #1d2124;
+    background-color: #BC5813;
+    background-image: none;
+    border-color: #1d2124;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    padding: 1px;
+    width: 140px;
+    margin-left: 25px;
+    font-family: cursive;
+}
+
+/* Button hover for watchlist and delete listings */
+.cb:hover
+ {
+       background-color: #000000 !important;
+       color: white;
+ }
+
+.c {
+    margin-left: 0px;
+}
+
+
+
+
+.box1 {
+  width: 400px;
+  height: auto;
+}
+
+
+
+.box2{
+  width: 170px;
+  height: 128px;
+}
+
+
+.f {
+    float: right;
+}
+
+.box1, .box2
+{
+    display:inline;
+}
+
+/*title box in active listing.html*/
+.title {
+    font-size: 1.6rem;
+    height: auto;
+}
+
+.watch_b {
+    width: 120px;
+    height: 26px;
+    margin-left: -4px;
+}
+
+
+
+
+.watch_b, .title {
+ display:inline;
+ font-size: 1.6rem;
+
+}
+
+
+
+.create_from {
+    margin: auto;
+    width: 800px;
+    height: auto;
+}
+
+
+.register_singin_from {
+    margin: auto;
+    width: 300px;
+    height: auto;
+}
+
+
+/* Width for all buttons */
+.sb {
+    width: 29%;
+}
+
+
+/* Margin between bid amount input bar and current bit text */
+
+.mg {
+    margin-top: 17.5px;
+    margin-bottom: 17.5px;
+
+}
+
+
+/* alert bar*/
+.alert {
+  padding: 20px;
+  background-color: #bc5814;
+  color: #1d2124;
+  text-align: center;
+  font-family: proxima-nova-n6,proxima-nova;
+  font-weight: 800;
+}
+
+
+/* font size for Publisher, Published, Categories in active listing.html*/
+.fs {
+    font-size: 13px;
+}
+
+
+.closebtn {
+  margin-left: 16px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+
+
+/* over all buttons*/
+.button {
+    width: 149px;
+    height: 40px;
+    font-weight: 600;
+    font-family: cursive;
+    background-color: #BC5813;
+    display: inline-block;
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+
+/* length for login button */
+.l_in_b {
+    width: 4em;
+}
+
+
+/* length for rgeister button */
+.r_b {
+    width: 6em;
+}
+
+
+/* over all buttons hovers */
+.button:hover {
+    background-color:black;
+    border-color: black;
+    color: white;
+}
+
+input#go:hover {
+  background-color: #ffffff;
+  color: #4c9ed9
+}
+
+
+/* all footers */
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #bc5814;
+  color: white;
+  text-align: center;
+  font-size: 12px!important;
+  padding: 0px 0px;
+}
+
+
+
+
+/* nav bar back background color*/
+.bg-dark {
+    background-color: #bc5814!important;
+    max-width: -webkit-fill-available;
+    box-shadow: 0px 6px 15px -8px #1d2124;
+}
+
+
+/* nav bar link text color*/
+a {
+    color: white;
+}
+
+  /* visited link */
+a:visited {
+    color: fcf8ec;
+}
+
+
+  /* mouse over link */
+a:hover {
+    color: rgba(0,0,0,0.75);
+}
+
+
+  /* selected link */
+a:active {
+    color:  rgba(0,0,0,0.0);
+}

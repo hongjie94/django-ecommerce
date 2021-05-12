@@ -1,0 +1,174 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %} AUCTIONS | {{listings.title}}{% endblock %}
+{% block bg %}
+    <style>
+        body {
+            background-color: #ead9d1;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 0px;
+        }
+
+          @media (min-width: 950px) {
+    
+        .regi, .l_out {
+
+                position: absolute;
+                right: 0px;
+            }
+        }
+        
+        @media (min-width: 800px) {
+    
+        .l_in {
+
+                position: absolute;
+                right: 100px;
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+
+<!-- Message for watchlist -->
+{% if message_wl %}
+        <div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  <h6>{{message_wl}} {{listings.title}} add to Watchlist</h6>
+</div>
+
+{% elif message_exist_wl %}
+        <div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  <h6>{{message_exist_wl}} Item already in your Watchlist</h6>
+</div>
+
+<!-- Message for bid -->
+{% elif message_b %}
+        <div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  <h6>{{message_b}}</h6>
+</div>
+
+{% elif message_winner %}
+  {% for i in bid %}
+{% for bids in i %}
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  <h6>{{message_winner}} {{bids.user|title}} with highest bid amount of ${{listings.current_bid}} </h6>
+</div>
+{% endfor %}
+{% endfor %}
+
+<!-- Message for comment -->
+{% elif message_c %}
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  <h6>{{message_c}}</h6>
+</div>
+{% endif %}
+
+<div class="row">
+
+    <span class="l_img" >
+            <div class="card_a">
+                 {% for i in bid %}
+                {% for bids in i %}
+                {% if message_winner %}
+                <div id="text_box">
+                    <h2 class ="l4"  style=" color:red;" >&nbsp;SOLD!</h2>
+                    <h5 class ="l1">&nbsp;Winner:{{bids.user|title}}</h5>
+                    <h5 class ="l2">&nbsp;Bid Amount:${{listings.current_bid}}</h5>
+                    <h5 class ="l3" style=" color:white;">&nbsp;{{bids.time_bade}}</h5>
+                </div>{% endif %}
+                {% endfor %}
+                {% endfor %}
+                <img class="pg_img" src="{{listings.image_url}}" alt="{{listings.title}}">
+            </div>
+    </span>
+
+    <div class="listing_detail">
+        <div class="card_b">
+            <div style="width: 510px; height: 33.6px; overflow: hidden;"><h3>{{listings.title}}</h3></div>
+            <a href="{% url 'add_watchlist' listings.id %}"><div class="watch_b"><button type="button"  id="go" class="btn btn-outli1ne cb c">Add to Watchlist</button></div></a>
+            <hr/>
+            <div class="box1">
+                <div class="fs">Publisher: {{listings.user|title}}</div>
+                <div class="fs">Published on: {{listings.time_created}}</div>
+                <div class="fs">Categories: {{listings.category}}</div>
+            </div>
+            <div class="box2">
+                    <div class="form-group sb ">
+                            <div class="mg">Starting bid: <strong>${{listings.starting_bid}}</strong>
+                                Current bid: <strong>${{listings.current_bid}}</strong>
+                            </div>
+
+                            <form action="{% url 'bid' listings.id %}" method="POST">
+                            {% csrf_token %}
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                            </div>
+                                <input type="number" class="form-control" name="bid" min="1">
+                                <div class="input-group-append">
+
+                                </div>
+                            </div>
+                            <input class="button btn" type="submit" value="Place Bid">
+                        </div>
+                    </form>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+         <div class="descriptions_box">
+            <h5>Item descriptions</h5>
+             <div style="font-size: 13px;" >{{listings.title|title}}</div>
+            <p>{{listings.descriptions}}</p>
+        </div>
+    </div>
+   <div class="cnd">
+
+
+    <div class="comment_box">
+        <br>
+            <h5>Comments</h5>
+
+            <hr/>
+            {% for comment in comments %}
+
+            <p><strong>{{comment.user|title}}</strong></p>
+            <p>{{comment.comment}}</p>
+            <p> {{comment.time_commented }}</p>
+            <hr/>
+            {% endfor %}
+        {% if user.is_authenticated %}
+          <form action="{% url 'comment' listings.id %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+          <label><b>Write a comment:</b></label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="comment" placeholder="Add a comment here..." required></textarea>
+        </div>
+               <div style="text-align:center;" > <input class="button btn" type="submit" value=" Add Comment"></div>
+          </form>
+    </div>
+        {% else %}
+        <div class="space"></div>
+        <div class="space"></div>
+        <div class="rrequired"> <a href="{% url 'register' %}">Register  </a>to add comments.</div>
+        <div class="rrequired ">Already have an account? <a href="{% url 'login' %}">Log In here.</a></div>
+        {% endif %}
+        <div class="space"></div>
+
+
+
+    </div>
+</div>
+
+{% endblock %}

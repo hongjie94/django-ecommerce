@@ -1,0 +1,29 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %} AUCTIONS | Categories HOME{% endblock %}
+
+{% block body %}
+
+   <div class="head h_h"> <h2 class="text">HOME</h2> </div>
+    <br>
+      <div id="container">
+        <div class="listings_contaniner">
+          {% for listing in listings %}
+          <div class="listings">
+              <div class="wrap_img" > <img class="listing_img" src="{{listing.image_url}}" alt="{{listing.id}}"> </div>
+            <a href= "{% url 'active_listings' listing.pk %}">
+            <div class= "listings_text">
+              {{listing.title}}
+            </div>
+            <div class= "listings_text">
+            Current bid ${{listing.current_bid}}
+            </div>
+            <br>
+            </a>   
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    
+      
+{% endblock %}
