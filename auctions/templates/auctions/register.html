@@ -1,62 +1,47 @@
 {% extends "auctions/layout.html" %}
+{% load static %}
 
 {% block bg %}
     <style>
         body {
-             background-image: url("../static/images/7.jpeg");
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-position: 50% 50%; 
-            background-size: cover;
-            padding: 0px;
+          background-image: url("{% static 'images/7.jpeg' %}");
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-position: 50% 50%; 
+          background-size: cover;
+          padding: 0px;
         }
-
-        @media (min-width: 950px) {
-    
-        .regi, .l_out {
-
-                position: absolute;
-                right: 0px;
-            }
-        }
-        
-        @media (min-width: 800px) {
-    
-        .l_in {
-
-                position: absolute;
-                right: 100px;
-            }
-        }
-        
     </style>
 {% endblock %}
 
 {% block body %}
-<div class="register_singin_from">
-     <div class="register"> <h2 class="text">Register</h2> </div>
+<div class="auth_from">
+  <div class="register"> 
+    <h2>Register</h2> 
+  </div>
+  {% if message %}
+      <div class="notification">{{ message }}</div>
+  {% endif %}
 
-    {% if message %}
-        <div class="register_meg">{{ message }}</div>
-    {% endif %}
+  <form action="{% url 'register' %}" method="post">
+      {% csrf_token %}
+      <div class="form-group">
+          <input class="form-control" autofocus type="text" name="username" placeholder="Username">
+      </div>
+      <div class="form-group">
+          <input class="form-control" type="email" name="email" placeholder="Email Address">
+      </div>
+      <div class="form-group">
+          <input class="form-control" type="password" name="password" placeholder="Password">
+      </div>
+      <div class="form-group mb">
+          <input class="form-control" type="password" name="confirmation" placeholder="Confirm Password">
+      </div>
+      <div class="mb-3" style="text-align:center;">
+        <input class="button btn" type="submit" value="Register">
+      </div>  
+  </form>
 
-    <form action="{% url 'register' %}" method="post">
-        {% csrf_token %}
-        <div class="form-group">
-            <input class="form-control" autofocus type="text" name="username" placeholder="Username">
-        </div>
-        <div class="form-group">
-            <input class="form-control" type="email" name="email" placeholder="Email Address">
-        </div>
-        <div class="form-group">
-            <input class="form-control" type="password" name="password" placeholder="Password">
-        </div>
-        <div class="form-group">
-            <input class="form-control" type="password" name="confirmation" placeholder="Confirm Password">
-        </div>
-        <div style="text-align:center;"><input class="button r_b btn" type="submit" value="Register">
-    </form>
-
-    <div class="register_bot">Already have an account? <a href="{% url 'login' %}">Log In here.</a></div>
+  <div class="register_bot">Already have an account? <a href="{% url 'login' %}">Log In here.</a></div>
 </div>
 {% endblock %}

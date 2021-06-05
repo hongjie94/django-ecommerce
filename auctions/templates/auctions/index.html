@@ -3,22 +3,27 @@
 {% block title %} AUCTIONS| HOME{% endblock %}
 
 {% block body %}
-<div id="container">
-    <div class="head"> <h2 class="text">LATEST LISTINGS</h2> </div>
-    
-    <div class="listings_contaniner">
-        {% for listing in listings %}
-        <div class="listings">
-            <img class="listing_img" src="{{listing.image_url}}" alt="{{listing.id}}">
-            <a href= "{% url 'active_listings' listing.pk %}">
-                <div class= "listings_text">{{listing.title}}</div>
-                <div class= "listings_text"> Current bid ${{listing.current_bid}}</div>
-            <a>
-        </div>
-        {% endfor %}
-    </div>
-
+<div id="myMxWidth" class="container">
+	<!-- header -->
+	<div class="head"> 
+		<h2 class="text">LATEST LISTINGS</h2> 
+	</div>
+	<!-- listing wrap -->
+	<div class="row">
+		{% for listing in listings %}
+		<!-- listing -->
+		<div class="d-flex justify-content-center col-12 col-sm-4 col-md-4 col-lg-3">
+			<div class="listings">
+				<!-- listing image-->
+				<img class="listing_img" src="{{listing.image_url}}" alt="{{listing.id}}">
+				<!-- listing details-->
+				<a href= "{% url 'active_listings' listing.pk %}">
+					<div class= "listings_text">{{listing.title}}</div>
+					<div class= "listings_text"> Current bid ${{listing.current_bid}}</div>
+				<a>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
 </div>
-
-
 {% endblock %}

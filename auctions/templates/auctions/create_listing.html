@@ -3,69 +3,74 @@
 {% block title %}AUCTIONS | Create Listings{% endblock %}
 
  {% block bg %}
-    <style>
-        body {
-            background-color: #ead9d1;
-            background-repeat: no-repeat;
-            background-size: cover;
-            padding: 0px;
-        }
-    </style>
-    {% endblock %}
+  <style>
+    body {
+      background-color: #ead9d1;
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding: 0px;
+    }
+  </style>
+  {% endblock %}
 {% block body %}
 
 {% if message %}
 
-        <div class="alert">
-  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-  <h6>{{ message }}. You may add another listing below.</h6>
+<div id="alert">
+  <div class="alert_content">
+    <h6>{{ message }}. You may add another listing below.</h6>
+    <span id="closebtn">&times;</span>
+  </div>
 </div>
 
 {% endif %}
-
-<div class="head_c"> <h2 class="text">Create New Listing</h2> </div>
-
-
-<div class="s"></div>
-
-<div class="create_from">
-<hr/>
-    <form action="{% url 'create_listing' %}" method="post">
-        {% csrf_token %}
-        <div class="form-group">
-            <label for="title">Title</label>
-            <input class="form-control"  id="title" autofocus type="text" name="title" placeholder="Enter a title for your item.">
-        </div>
-    <hr/>
-        <div class="form-group">
-            <label for="descriptions">Descriptions</label>
-            <textarea rows="7"  id="descriptions" class="form-control" name="descriptions" placeholder="Add a detailed description here." ></textarea >
-        </div>
-    <hr/>
-        <div class="form-group  sb">
-            <label for="starting_bid">Starting bid</label>
-            <input class="form-control b" type="number" id="starting_bid" name="starting_bid" min="1">
-        </div>
-    <hr/>
-        <div class="form-group">
-            <label for="url">Image URL</label>
-            <input class="form-control" id="url"  type="url" name="image_url" placeholder="Add a photo to improve your buyer’s confidence.">
-        </div>
-    <hr/>
-        <div class="form-group">
-            <label for="category">Choose a categories:</label>
-            <select id="category" name="category" >
-                <option value="Fashion">Fashion</option>
-                <option value="Toys">Toys</option>
-                <option value="Electronic">Electronic</option>
-                <option value="Home">Home</option>
-                <option value="Everything Else">Everything Else</option>
-            </select>
-        </div>
-        <hr/>
-        <div style="text-align:center;" > <input class="button btn a" type="submit" value="Create Listing"></div>
-    </form>
+<!-- header -->
+<div class="head">
+  <h2 class="text">Create New Listing</h2>
 </div>
-<br>
-<div> </div>
+
+<!-- Create listing from -->
+<div class="create_from container">
+  <hr/>
+  <div class="row">
+    <form class="col-lg-12 mb-5" action="{% url 'create_listing' %}" method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input class="form-control"  id="title" autofocus type="text" name="title" placeholder="Enter a title for your item.">
+      </div>
+      <hr/>
+      <div class="form-group">
+        <label for="descriptions">Descriptions</label>
+        <textarea rows="7"  id="descriptions" class="form-control" name="descriptions" placeholder="Add a detailed description here." ></textarea >
+      </div>
+      <hr/>
+      <div class="form-group  sb">
+        <label for="starting_bid">Starting bid</label>
+        <input class="form-control b" type="number" id="starting_bid" name="starting_bid" min="1">
+      </div>
+      <hr/>
+      <div class="form-group">
+        <label for="url">Image URL</label>
+        <input class="form-control" id="url"  type="url" name="image_url" placeholder="Add a photo to improve your buyer’s confidence.">
+      </div>
+      <hr/>
+      <div class="form-group">
+        <label for="category">Choose a categories:</label>
+        <select id="category" name="category" >
+          <option value="Fashion">Fashion</option>
+          <option value="Toys">Toys</option>
+          <option value="Electronic">Electronic</option>
+          <option value="Home">Home</option>
+          <option value="Everything Else">Everything Else</option>
+        </select>
+      </div>
+      <hr/>
+      <div class="createBtn mb-5"> 
+        <input class="button btn" type="submit" value="Create Listing">
+      </div>
+    </form>
+  </div>
+</div>
+
 {% endblock %}

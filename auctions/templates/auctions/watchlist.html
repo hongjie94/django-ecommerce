@@ -2,71 +2,57 @@
 
 {% block title %} AUCTIONS | HOME{% endblock %}
 
- {% block bg %}
-    <style>
-        body {
-            background-color: #ead9d1;
-            background-repeat: no-repeat;
-            background-size: cover;
-            padding: 0px;
-            font-size: 0.9rem;
-        }
-
-         @media (min-width: 950px) {
-    
-        .regi, .l_out {
-
-                position: absolute;
-                right: 0px;
-            }
-        }
-        
-        @media (min-width: 800px) {
-    
-        .l_in {
-
-                position: absolute;
-                right: 100px;
-            }
-        }
-    </style>
+{% block bg %}
+<style>
+  body {
+    background-color: #ead9d1;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0px;
+    font-size: 0.9rem;
+    margin-bottom: 10em;
+  }
+</style>
 {% endblock %}
-
 
 {% block body %}
 {% if message %}
-        <div class="alert">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-            <h6>{{ message }}.</h6>
-        </div>
+<div id="alert">
+  <div class="alert_content">
+    <h6>{{ message }}.</h6>
+    <span id="closebtn">&times;</span>
+  </div>
+</div>  
 {% endif %}
-  <div class="head h_wl"> <h2 class="text">MY WATCHLIST [{{count}}]</h2> </div>
-<br>
-
-<div class="myl_wl">
-
-    <hr/>
-
+<div class="head">
+  <h2 class="text">MY WATCHLIST</h2> 
+</div>
+<hr/>
+<p style="text-align: center;">You have {{count}} Items in your watchlist.</p>
+<div id="myMxWidth" class="container my-5">
+  <!-- listing wrap -->
+  <div class="row">
     {% for object in watchlist %}
     {% for listing in object %}
-   <div class="listings wl">Starting bid / ${{listing.starting_bid}}
-            <div class="wrap_img" ><img class="listing_img" src="{{listing.image_url}}" alt="{{listing.id}}"></div>
-               <a href= "{% url 'active_listings' listing.pk %}">
-                <div class= "listings_text">{{listing.title}}</div>
-            <div class= "listings_text"> Current bid ${{listing.current_bid}}</div><a>
-
-            <a href="{% url 'remove_watchlist' listing.pk  %}"><div class="watch_b"><button style=" width: 140px;" type="button" class="btn btn-outli1ne-success cb">Remove Watchlist</button></div></a>
-
-
-         </div>
-
-
-     {% endfor %}
+    <div class="d-flex justify-content-center col-12 col-sm-4 col-md-4 col-lg-3">
+      <div class="listings">
+        <div class="pl-2">Starting bid / ${{listing.starting_bid}}</div> 
+        <img class="listing_img" src="{{listing.image_url}}" alt="{{listing.id}}">
+        <a href= "{% url 'active_listings' listing.pk %}">
+          <div class= "listings_text">{{listing.title}}</div>
+          <div class= "listings_text"> Current bid ${{listing.current_bid}}</div>
+        <a>
+        <div class="Btns">
+          <a href="{% url 'remove_watchlist' listing.pk  %}">
+            <button type="button" class="btn watchBtn">
+              Remove Watchlist
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
     {% endfor %}
- <div class="space"></div>
+    {% endfor %}
+  </div>
 </div >
-
-
-
-
 {% endblock %}

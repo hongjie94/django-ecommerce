@@ -11,7 +11,6 @@ from .models import *
 # Homepage
 def index(request):
     """
-
     :param request:
     :return:
     """
@@ -43,7 +42,7 @@ def login_view(request):
             return HttpResponseRedirect(reverse("index"))
         else:
             return render(request, "auctions/login.html", {
-                "message": "Invalid username and/or password."
+                "message": "Invalid username and or password!"
             })
     else:
         return render(request, "auctions/login.html")
@@ -80,17 +79,17 @@ def register(request):
         confirmation = request.POST["confirmation"]
         if username == "":
             return render(request, "auctions/register.html", {
-                "message": "Must provide a username."
+                "message": "Must provide a username!"
             })
 
         if password == "":
             return render(request, "auctions/register.html", {
-                "message": "Must provide a password."
+                "message": "Must provide a password!"
             })
 
         if password != confirmation:
             return render(request, "auctions/register.html", {
-                "message": "Passwords must match."
+                "message": "Passwords must match!"
             })
 
         # Attempt to create new user
@@ -100,7 +99,7 @@ def register(request):
 
         except IntegrityError:
             return render(request, "auctions/register.html", {
-                "message": "Username already taken."
+                "message": "Username already taken!"
             })
         login(request, user)
         return HttpResponseRedirect(reverse("index"))
@@ -400,7 +399,7 @@ def bid(request, listing_id):
             user_bid = int(ub)
 
         # If bid is closed display sold image and bid summit button disable
-        elif listing.image_url == "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603406015459&di=06f631ced7a0f89f5ed83f49bd313e51&imgtype=0&src=http%3A%2F%2Fku.90sjimg.com%2Felement_origin_min_pic%2F17%2F07%2F28%2F37d6a9a47547ddefe2050516bdda5cd1.jpg":
+        elif listing.image_url == "https://files.theinteriorsaddict.com/uploads/2016/01/gavel-640x430.jpg":
             user_bid = raw_input(None)
 
         # Ensure user input is valid
@@ -408,7 +407,7 @@ def bid(request, listing_id):
             user_bid = int(raw_input(ub))
 
         # Ensure user bid amount greater than starting bid and listing is active
-        if user_bid > current_bid and not listing.image_url == "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603406015459&di=06f631ced7a0f89f5ed83f49bd313e51&imgtype=0&src=http%3A%2F%2Fku.90sjimg.com%2Felement_origin_min_pic%2F17%2F07%2F28%2F37d6a9a47547ddefe2050516bdda5cd1.jpg":
+        if user_bid > current_bid and not listing.image_url == "https://files.theinteriorsaddict.com/uploads/2016/01/gavel-640x430.jpg":
 
             # Get current bid listing
             exist_listing = Listing.objects.get(id=listing_id)
@@ -439,8 +438,8 @@ def bid(request, listing_id):
                 "message_b": "Your Bid is added."
             })
 
-            # If listing is closed send winner message
-        elif listing.image_url == "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603406015459&di=06f631ced7a0f89f5ed83f49bd313e51&imgtype=0&src=http%3A%2F%2Fku.90sjimg.com%2Felement_origin_min_pic%2F17%2F07%2F28%2F37d6a9a47547ddefe2050516bdda5cd1.jpg":
+        # If listing is closed send winner message
+        elif listing.image_url == "https://files.theinteriorsaddict.com/uploads/2016/01/gavel-640x430.jpg":
 
             exist_listing = Listing.objects.get(id=listing_id)
 
@@ -472,7 +471,7 @@ def close_bid(request, listing_id):
 
     # If bid close change the item image
     if request.user.username:
-        image = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603406015459&di=06f631ced7a0f89f5ed83f49bd313e51&imgtype=0&src=http%3A%2F%2Fku.90sjimg.com%2Felement_origin_min_pic%2F17%2F07%2F28%2F37d6a9a47547ddefe2050516bdda5cd1.jpg"
+        image = "https://files.theinteriorsaddict.com/uploads/2016/01/gavel-640x430.jpg"
         exist_listing = Listing.objects.get(pk=listing_id)
         exist_listing.image_url = image
         exist_listing.save()
