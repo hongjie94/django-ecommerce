@@ -7,7 +7,7 @@ E-commerce auction site
 * Bootstrap
 * CSS3
 * HTML5
-* SQL
+* SQLite3
 * Google Cloud (Hosting)
 
 ## Django-Ecommerce-Diagram
