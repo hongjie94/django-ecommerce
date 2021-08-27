@@ -11,5 +11,5 @@ E-commerce auction site
 * AWS Elastic Beanstalk(Hosting)
 
 ## Django-Ecommerce-Diagram
-### [https://django-auctions.uc.r.appspot.com](https://django-auctions.uc.r.appspot.com)
+### [http://djangowebapp-env.eba-p9jwfygf.us-west-2.elasticbeanstalk.com](http://djangowebapp-env.eba-p9jwfygf.us-west-2.elasticbeanstalk.com)
 ![Screenshot](/Diagram.jpg)
