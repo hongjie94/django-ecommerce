@@ -8,7 +8,7 @@ E-commerce auction site
 * CSS3
 * HTML5
 * SQLite3
-* Google Cloud (Hosting)
+* AWS Elastic Beanstalk(Hosting)
 
 ## Django-Ecommerce-Diagram
 ### [https://django-auctions.uc.r.appspot.com](https://django-auctions.uc.r.appspot.com)
